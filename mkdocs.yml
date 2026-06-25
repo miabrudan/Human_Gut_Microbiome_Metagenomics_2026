@@ -6,12 +6,16 @@ theme:
 nav:
   - Home: index.md
   - Course modules:
-      - Module 1: Data download, QC and decontamination:
+      - "Module 1: Data download, QC and decontamination":
           - Overview: course_modules_2026/Module1_Data_download_QC_and_decontamination/Module1_QC.md
-
-      - Module 5: Functional annotation:
+      - "Module 2: Assembly and MAGs":
+          - Overview: course_modules_2026/Module2_Assembly_and_Metagenome-Assembled_Genomes/Module2_MAGs.md
+      - "Module 3: Custom microbiome database":
+          - Overview: course_modules_2026/Module3_building_reference_microbiome_databases/Module3_building reference microbiome databases.md
+      - "Module 4: Taxonomic profiling":
+          - Overview: course_modules_2026/Module4_read-based_vs_assembly-based_profiling_approaches_to_taxonomic_annotation/Module4_Taxanomic_profiling.md 
+      - "Module 5: Functional annotation":
           - Functional profiling: course_modules_2026/Module5_Functional_Annotation/Module5a_Functional_profiling.md
           - Supplementary HUMAnN Nextflow: course_modules_2026/Module5_Functional_Annotation/Module5a_Supplementary1_HUMAnN_on_Nextflow.md
-
-      - Module 6: Phylogenetic trees:
+      - "Module 6: Phylogenetic trees":
           - Building phylogenetic trees: course_modules_2026/Module6_Phylogenetic_trees/Module6_phylogenetics.md
