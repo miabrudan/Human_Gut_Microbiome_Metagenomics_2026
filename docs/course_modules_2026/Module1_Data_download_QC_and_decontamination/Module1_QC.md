@@ -7,7 +7,7 @@ Boniface Gichuki
 Luicer Anne Ingasia Olubayo
 
 ---
-## Introduction
+# Introduction
 After library preparation and sequencing, the resulting raw reads enter the metagenomic bioinformatics workflow, where computational analyses transform large volumes of sequencing data into interpretable biological insights. The schematic below illustrates the overall metagenomic bioinformatics workflow that will be explored throughout this training.
 
 ![overview](images/overview.png)
@@ -47,7 +47,7 @@ ___
 > **metaWRAP** – workflow automation for metagenomic preprocessing
 
 ---
-## Part I — Understanding the data before cleaning it
+# Part I — Understanding the data before cleaning it
 Before running any software, it is important to understand the structure and characteristics of sequencing data.
 
 1. What is a FASTQ file?
@@ -123,7 +123,7 @@ project/
 ```
 
 ---
-## Part II — Downloading data from ENA
+# Part II — Downloading data from ENA
 The International Nucleotide Sequence Database Collaboration (INSDC) consists of three synchronized global archives:
 
 - National Center for Biotechnology Information (NCBI) (USA)
@@ -193,7 +193,7 @@ The downloaded FASTQ files are written directly to the `RAW_READS` directory, wh
 
 ---
 
-## Part III — Initial quality control
+# Part III — Initial quality control
 In this section, we apply the some of the tools introduced earlier to perform the key preprocessing steps required before downstream metagenomic analysis.
 
 The major preprocessing steps in any shotgun metagenomic analysis are illustrated below. 
@@ -233,7 +233,7 @@ The output multiqc_report.html allows cross-sample comparison and helps identify
 - global sequencing quality trends
 
 ---------------------------
-## Part IV - Correcting identified problems
+# Part IV - Correcting identified problems
 After quality assessment, the next step is to correct the identified issues.
 
 1. Adapter trimming and quality filtering
@@ -368,7 +368,7 @@ These cleaned reads are used for downstream analyses such as:
 - metagenome-assembled genome (MAG) reconstruction
 
 ---
-## Using a workflow:
+# Using a workflow:
 For a small number of samples, running preprocessing steps manually helps users understand each stage of the workflow. However, in large metagenomic projects containing hundreds of samples, manual execution becomes inefficient.
 
 Workflow systems such as Netflow and Snakemake automate these tasks in containerised environments and ensure reproducibility.

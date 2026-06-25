@@ -147,7 +147,7 @@ grep -c ">" metawrap_bins/SRR30598619_bin.10.orig.fa
 
 MAGs usually consist of multiple contigs rather than a single continuous sequence.
 
-# Discussion
+## Discussion
 1. Why do MAGs typically consist of multiple contigs rather than a single chromosome?
 2. Why might some bins show contamination?
 3. How might sequencing depth influence MAG completeness?
