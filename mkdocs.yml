@@ -1,0 +1,7 @@
+site_name: My Project
+site_description: Documentation for My Project
+theme:
+  name: readthedocs
+
+nav:
+  - Home: index.md
