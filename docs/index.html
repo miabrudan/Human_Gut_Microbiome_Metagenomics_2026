@@ -7,6 +7,12 @@
 <title>Human Gut Microbiome Metagenomics - Africa 2026 | Course overview and training materials</title>
 <meta content="Overview, programme, instructors, learning outcomes and training materials for the Human Gut Microbiome Metagenomics - Africa course." name="description"/>
 <style>
+  .activity-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
     :root {
       --bg: #f7f4ef;
       --ink: #15251f;
@@ -130,6 +136,7 @@
     .photo-placeholder{height:280px;border:3px dashed var(--line);border-radius:20px;
     display:flex;align-items:center;justify-content:center;background:#fafafa;color:var(--muted);
     font-weight:700;}
+
     @media (max-width: 860px) {
       .cols-2, .cols-3, .materials, .timeline { grid-template-columns: 1fr; }
       .arrow { display: none; }
@@ -143,11 +150,6 @@
       body { background: white; }
       .panel { box-shadow: none; }
     }
-    .activity-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-  }
   
     .people-list { columns: 2; column-gap: 2rem; padding-left: 1.1rem; color: var(--muted); }
     .people-list li { break-inside: avoid; margin-bottom: .45rem; }
@@ -157,26 +159,63 @@
 </style>
 </head>
 <body>
-<nav aria-label="Slide navigation" class="footer-nav"><a href="#start">Start</a><a href="#overview">Overview</a><a href="#programme">Programme</a><a href="#materials">Modules</a></nav>
+<nav aria-label="Slide navigation" class="footer-nav"><a href="#start">Start</a><a href="#audience">Target audience</a><a href="#materials">Training materials</a><a href="#people">Training team</a></nav>
 <main class="deck">
 <section class="slide" id="start">
 <div class="wrap panel">
 <span class="eyebrow">Training materials</span>
 <h1>Human Gut Microbiome Metagenomics – Africa</h1>
 <p class="lead">Bioinformatics resources for human gut microbiome metagenomics</p>
-<div class="photo-placeholder" style="margin-top:2rem;"><img alt="group photo" class="activity-image" src="group_photo.jpg"/></div>
+<div class="photo-placeholder" style="margin-top:2rem;"><img alt="group photo" class="activity-image" src="group_photo.jpg" size="100%"/></div>
+</div>
+</section>
+
+<section class="slide" id="audience">
+<div class="wrap panel">
+<span class="eyebrow">Target audience</span>
+<div class="grid cols-3">
+<div class="card"><strong>Early to mid-career scientists</strong><p>Researchers developing expertise in microbiome metagenomics.</p></div>
+<div class="card"><strong>PhD students</strong><p>Participants applying sequencing and bioinformatics to relevant research questions.</p></div>
+<div class="card"><strong>Postdoctoral researchers</strong><p>Scientists strengthening study design, analysis, interpretation and communication skills.</p></div>
+</div>
 </div>
 </section>
 
 <section class="slide" id="outcomes">
 <div class="wrap panel">
 <span class="eyebrow">Learning outcomes</span>
-<h2>By the end, participants should be able to…</h2>
 <div class="grid cols-2">
 <div class="card"><strong>Evaluate concepts</strong><p>Connect microbiome metagenomics and bioinformatics to early-life health, immunity, nutrition, and infection resistance.</p></div>
 <div class="card"><strong>Analyse data</strong><p>Use practical workflows to generate, analyse, and interpret microbiome metagenomics datasets.</p></div>
 <div class="card"><strong>Apply ethical thinking</strong><p>Integrate equitable, context-specific considerations into microbiome research practice.</p></div>
 <div class="card"><strong>Communicate impact</strong><p>Assess limitations, report findings clearly, and strengthen grant-writing and public engagement skills.</p></div>
+</div>
+</div>
+</section>
+
+<section class="slide" id="materials">
+<div class="wrap panel">
+<span class="eyebrow">Training materials</span>
+<h2>Hands-on bioinformatics modules</h2>
+<div class="grid cols-2"><div class="card"><strong><a href="course_modules_2026/module1/Module1_QC.html"> Data download, QC and decontamination </a></strong>
+  <p>Quality assessment, preprocessing and preparation of clean metagenomic datasets.</p></div>
+  
+  <div class="card">  
+    <strong><a href="course_modules_2026/module2/mags.html"> Assembly and MAGs</a></strong><p>Metagenome assembly, binning, quality assessment and genome-centred analysis.</p></div>
+    
+    <div class="card"><strong><a href="course_modules_2026/module3/module3.html">Custom microbiome database</a></strong><p>Building and using tailored databases for microbiome analysis.</p></div>
+    <div class="card"><strong><a href="course_modules_2026/module4/module4.html">Taxonomic profiling</a></strong><p>Read-based and assembly-based approaches for identifying microbial communities.</p></div>
+    <div class="card"><strong><a href="course_modules_2026/module5/module5a_functional_profiling.html">Functional prediction and annotation</a></strong><p>Functional profiling from shotgun metagenomic data and interpretation of pathways.</p></div>
+    <div class="card"><strong><a href="course_modules_2026/module6/module6.html">Phylogenetic trees</a></strong><p>Building and interpreting trees to explore evolutionary relationships.</p></div></div>
+
+    <h3 style="margin-top:2rem;">Photo Gallery Areas</h3>
+<div class="grid cols-3">
+<div class="photo-placeholder">Faculty &amp; Trainers</div>
+<div class="photo-placeholder">Practical Sessions</div>
+<div class="photo-placeholder">Sequencing Laboratory</div>
+<div class="photo-placeholder">Group Discussions</div>
+<div class="photo-placeholder">Participant Projects</div>
+<div class="photo-placeholder">Course Group Photo</div>
 </div>
 </div>
 </section>
@@ -229,43 +268,6 @@
 </div>
 </section>
 
-<section class="slide" id="audience">
-<div class="wrap panel">
-<span class="eyebrow">Target audience</span>
-<div class="grid cols-3">
-<div class="card"><strong>Early to mid-career scientists</strong><p>Researchers developing expertise in microbiome metagenomics.</p></div>
-<div class="card"><strong>PhD students</strong><p>Participants applying sequencing and bioinformatics to relevant research questions.</p></div>
-<div class="card"><strong>Postdoctoral researchers</strong><p>Scientists strengthening study design, analysis, interpretation and communication skills.</p></div>
-</div>
-</div>
-</section>
-
-<section class="slide" id="materials">
-<div class="wrap panel">
-<span class="eyebrow">Training materials</span>
-<h2>Hands-on bioinformatics modules</h2>
-<div class="grid cols-2"><div class="card"><strong><a href="course_modules_2026/module1/Module1_QC.html"> Data download, QC and decontamination </a></strong>
-  <p>Quality assessment, preprocessing and preparation of clean metagenomic datasets.</p></div>
-  
-  <div class="card">  
-    <strong><a href="course_modules_2026/module2/mags.html"> Assembly and MAGs</a></strong><p>Metagenome assembly, binning, quality assessment and genome-centred analysis.</p></div>
-    
-    <div class="card"><strong><a href="course_modules_2026/module3/module3.html">Custom microbiome database</a></strong><p>Building and using tailored databases for microbiome analysis.</p></div>
-    <div class="card"><strong><a href="course_modules_2026/module4/module4.html">Taxonomic profiling</a></strong><p>Read-based and assembly-based approaches for identifying microbial communities.</p></div>
-    <div class="card"><strong><a href="course_modules_2026/module5/module5a_functional_profiling.html">Functional prediction and annotation</a></strong><p>Functional profiling from shotgun metagenomic data and interpretation of pathways.</p></div>
-    <div class="card"><strong><a href="course_modules_2026/module6/module6.html">Phylogenetic trees</a></strong><p>Building and interpreting trees to explore evolutionary relationships.</p></div></div>
-
-    <h3 style="margin-top:2rem;">Photo Gallery Areas</h3>
-<div class="grid cols-3">
-<div class="photo-placeholder">Faculty &amp; Trainers</div>
-<div class="photo-placeholder">Practical Sessions</div>
-<div class="photo-placeholder">Sequencing Laboratory</div>
-<div class="photo-placeholder">Group Discussions</div>
-<div class="photo-placeholder">Participant Projects</div>
-<div class="photo-placeholder">Course Group Photo</div>
-</div>
-</div>
-</section>
 </main>
 </body>
 </html>
