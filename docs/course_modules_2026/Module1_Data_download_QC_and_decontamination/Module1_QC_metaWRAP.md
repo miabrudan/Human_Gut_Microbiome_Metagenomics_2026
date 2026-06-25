@@ -2,7 +2,7 @@
 
 Note: This pipeline is only a guide. None of metaWRAP's modules are dependant of each other, so if you want to do certain steps with another software, you are free to do so. For example, if you want to try the Reassemble_bins module on your own bins, you do not need to run the other modules just to get to that point. Or if you want to use a different assembler that metaSPAdes of MegaHit, you can do so, and then proceed to the rest of the pipeline with your own assembly.
 
-## Step 1: Run metaWRAP-Read_qc to trim the reads and remove human contamination
+## Run metaWRAP-Read_qc to trim the reads and remove human contamination
 Note: you will need the bmtagger hg38 index to remove the human reads - see the metaWRAP database installation instructions. You may also use another host genome to filter against with the `-x` option. Alternatively, use the `--skip-bmtagger` flag of of the ReadQC module to only do the read trimming.
 
 Individually process each sample
@@ -31,11 +31,6 @@ These are html reports of the read quality before and after QC:
 post-QC_report
 pre-QC_report
 ```
-
-Original raw reads:
-![Read quality before QC](https://i.imgur.com/x8aaFWs.png)
-Final QC'ed reads:
-![Read quality before QC](https://i.imgur.com/drJfxC9.png)
 
 
 These are the final trimmed and de-contaminated reads:

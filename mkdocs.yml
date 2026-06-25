@@ -15,7 +15,9 @@ nav:
           - Results interpretation: course_modules_2026/Module1_Data_download_QC_and_decontamination/Module1_Practical.md
 
       - "Module 2: Assembly and MAGs":
-          - Overview: course_modules_2026/Module2_Assembly_and_Metagenome-Assembled_Genomes/Module2_MAGs.md
+          - Introduction: course_modules_2026/Module2_Assembly_and_Metagenome-Assembled_Genomes/Module2_MAGs.md
+          - MetaWRAP example: course_modules_2026/Module2_Assembly_and_Metagenome-Assembled_Genomes/Module2_MAGs_metaWRAP.md
+          - Results interpretation: course_modules_2026/Module2_Assembly_and_Metagenome-Assembled_Genomes/Module2_Practical.md
       - "Module 3: Custom microbiome database":
           - Overview: course_modules_2026/Module3_building_reference_microbiome_databases/Module3_building reference microbiome databases.md
       - "Module 4: Taxonomic profiling":
