@@ -1,9 +1,19 @@
-site_name: My Project
+site_name: Human Gut Microbiome Metagenomics - Africa 2026
 site_description: Documentation for My Project
 theme:
-  name: material
+  name: readthedocs
   features:
     - navigation.expand
 
 nav:
   - Home: index.md
+  - Course modules:
+      - Module 1: Data download, QC and decontamination:
+          - Overview: course_modules_2026/Module1_Data_download_QC_and_decontamination/Module1_QC.md
+
+      - Module 5: Functional annotation:
+          - Functional profiling: course_modules_2026/Module5_Functional_Annotation/Module5a_Functional_profiling.md
+          - Supplementary HUMAnN Nextflow: course_modules_2026/Module5_Functional_Annotation/Module5a_Supplementary1_HUMAnN_on_Nextflow.md
+
+      - Module 6: Phylogenetic trees:
+          - Building phylogenetic trees: course_modules_2026/Module6_Phylogenetic_trees/Module6_phylogenetics.md
