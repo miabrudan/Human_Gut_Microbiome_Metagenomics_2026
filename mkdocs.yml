@@ -2,8 +2,6 @@ site_name: Human Gut Microbiome Metagenomics - Africa 2026
 site_description: Documentation for My Project
 theme:
   name: readthedocs
-  features:
-    - navigation.expand
 
 nav:
   - Home: index.md
