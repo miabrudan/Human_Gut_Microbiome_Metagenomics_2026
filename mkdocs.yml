@@ -1,7 +1,9 @@
 site_name: My Project
 site_description: Documentation for My Project
 theme:
-  name: readthedocs
+  name: material
+  features:
+    - navigation.expand
 
 nav:
   - Home: index.md
