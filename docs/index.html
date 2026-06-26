@@ -156,6 +156,40 @@
     .compact-card strong { color: var(--accent); }
     .date-box { background: #f3faf7; border: 1px solid var(--line); border-radius: 18px; padding: 1rem; font-weight: 800; color: var(--accent); }
     @media (max-width: 860px) { .people-list { columns: 1; } }
+
+
+    /* Compact vertical spacing: remove full-screen slide gaps and reduce padding. */
+    .deck {
+      height: auto;
+      overflow-y: visible;
+      scroll-snap-type: none;
+    }
+    section.slide {
+      min-height: auto;
+      scroll-snap-align: none;
+      display: block;
+      place-items: initial;
+      padding: .6rem 1.25rem;
+    }
+    section.slide:first-child { padding-top: 1rem; }
+    section.slide:last-child { padding-bottom: 1rem; }
+    .wrap { margin: 0 auto; }
+    .panel { padding: clamp(1rem, 2.2vw, 2rem); }
+    h1, h2, h3 { margin-bottom: .65rem; }
+    p.lead { margin: .5rem 0 1rem; }
+    .grid { gap: .75rem; }
+    .card, .step, .callout { padding: 1rem; }
+    .timeline, .meta { margin-top: 1rem; }
+    .photo-placeholder { height: 210px; }
+    #start .photo-placeholder { margin-top: 1rem !important; }
+    #materials h3 { margin-top: 1rem !important; }
+
+    @media (max-width: 860px) {
+      section.slide { padding: .5rem .75rem; }
+      section.slide:first-child { padding-top: .75rem; }
+      .panel { padding: 1rem; }
+      .photo-placeholder { height: 170px; }
+    }
 </style>
 </head>
 <body>
@@ -197,8 +231,8 @@
 <div class="wrap panel">
 <span class="eyebrow">Training materials</span>
 <h2>Hands-on bioinformatics modules</h2>
-<div class="grid cols-2">
-  <div class="card"><strong><a href="course_modules_2026/module1_qc/module1/"> Data download, QC and decontamination </a></strong><p>Quality assessment, preprocessing and preparation of clean metagenomic datasets.</p></div>
+
+<div class="card"><strong><a href="course_modules_2026/module1_qc/module1/"> Data download, QC and decontamination </a></strong><p>Quality assessment, preprocessing and preparation of clean metagenomic datasets.</p></div>
   <div class="card"><strong><a href="course_modules_2026/module2_assembly/module2/"> Assembly and MAGs</a></strong><p>Metagenome assembly, binning, quality assessment and genome-centred analysis.</p></div>
   <div class="card"><strong><a href="course_modules_2026/module3_reference_databases/module3/">Custom microbiome database</a></strong><p>Building and using tailored databases for microbiome analysis.</p></div>
   <div class="card"><strong><a href="course_modules_2026/module4_profiling/module4/">Taxonomic profiling</a></strong><p>Read-based and assembly-based approaches for identifying microbial communities.</p></div>
