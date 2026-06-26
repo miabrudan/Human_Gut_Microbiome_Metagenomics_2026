@@ -9,19 +9,21 @@ theme:
 nav:
   - Course modules:
       - "Module 1: Data download, QC and decontamination":
-          - Introduction: course_modules_2026/Module1_Data_download_QC_and_decontamination/Module1_QC.md
-          - MetaWRAP example: course_modules_2026/Module1_Data_download_QC_and_decontamination/Module1_QC_metaWRAP.md
-          - Results interpretation: course_modules_2026/Module1_Data_download_QC_and_decontamination/Module1_Practical.md
+          - Introduction: course_modules_2026/module1_qc/module1.md
+          - MetaWRAP example: course_modules_2026/module1_qc/module1_metawrap.md
+          - Results interpretation: course_modules_2026/module1_qc/module1_practical.md
       - "Module 2: Assembly and MAGs":
-          - Introduction: course_modules_2026/Module2_Assembly_and_Metagenome-Assembled_Genomes/Module2_MAGs.md
-          - MetaWRAP example: course_modules_2026/Module2_Assembly_and_Metagenome-Assembled_Genomes/Module2_MAGs_metaWRAP.md
-          - Results interpretation: course_modules_2026/Module2_Assembly_and_Metagenome-Assembled_Genomes/Module2_Practical.md
+          - Introduction: course_modules_2026/module2_assembly/module2.md
+          - MetaWRAP example: course_modules_2026/module2_assembly/module2_metawrap.md
+          - Results interpretation: course_modules_2026/module2_assembly/module2_practical.md
       - "Module 3: Custom microbiome database":
-          - Overview: course_modules_2026/Module3_building_reference_microbiome_databases/Module3_building reference microbiome databases.md
+          - Overview: course_modules_2026/module3_reference_databases/module3.md
       - "Module 4: Taxonomic profiling":
-          - Overview: course_modules_2026/Module4_read-based_vs_assembly-based_profiling_approaches_to_taxonomic_annotation/Module4_Taxanomic_profiling.md 
-      - "Module 5: Functional annotation":
-          - Functional profiling: course_modules_2026/Module5_Functional_Annotation/Module5a_Functional_profiling.md
-          - Supplementary HUMAnN Nextflow: course_modules_2026/Module5_Functional_Annotation/Module5a_Supplementary1_HUMAnN_on_Nextflow.md
+          - Overview: course_modules_2026/module4_profiling/module4.md 
+      - "Module 5a: Functional annotation":
+          - Functional profiling: course_modules_2026/module5_functional_annotation/module5a.md
+          - Supplementary HUMAnN Nextflow: course_modules_2026/module5_functional_annotation/module5a_nextflow.md
+      - "Module 5b: AMR and RGI":
+          - Functional profiling: course_modules_2026/module5_functional_annotation/module5b.md
       - "Module 6: Phylogenetic trees":
-          - Building phylogenetic trees: course_modules_2026/Module6_Phylogenetic_trees/Module6_phylogenetics.md
+          - Building phylogenetic trees: course_modules_2026/module6_phylogeny/module6.md
