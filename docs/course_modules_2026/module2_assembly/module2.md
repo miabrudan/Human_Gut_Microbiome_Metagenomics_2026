@@ -61,7 +61,7 @@ By the end of this module, participants will be able to:
 7. Interpret **completeness and contamination metrics**
 
 ---
-## Big picture: From reads to MAGs
+## From reads to MAGs
 The overall workflow can be summarized as:
 
 ```text
@@ -244,7 +244,7 @@ Participants may substitute `SRR30598619` with other run accessions from Module 
 
 ---
 
-## Step 1: Metagenomic assembly
+## Metagenomic assembly
 The first step in genome-resolved metagenomics is assembling sequencing reads into longer sequences.
 
 metaWRAP performs this step using the **MEGAHIT assembler**.
@@ -266,14 +266,14 @@ metawrap assembly \
 - `-t` number of CPU threads  
 - `-m` memory in GB  
 
-### Output
+## Output
 ```text
 assembly_output/final_assembly.fasta
 ```
 
 This file contains the assembled contigs.
 
-## Step 2: Genome binning
+## Genome binning
 Following assembly, contigs must be partitioned into bins representing candidate genomes.
 
 metaWRAP can run multiple binning algorithms:
@@ -309,7 +309,7 @@ binning_output/
 
 Each directory contains bins produced by the corresponding algorithm.
 
-# Step 3: Bin refinement
+### Bin refinement
 Different binning algorithms often produce overlapping or partially inconsistent bins. The **bin_refinement** module compares these bins and selects the best versions based on genome quality metrics.
 
 During this process, **CheckM is automatically used to evaluate completeness and contamination**.
@@ -342,7 +342,7 @@ refined_bins/metawrap_bins/
 These refined bins represent the candidate **MAGs**.
 
 
-## Step 4: Quality assessment with CheckM
+## Quality assessment with CheckM
 The quality of MAGs must be evaluated before further analysis. CheckM estimates genome quality based on lineage-specific marker genes.
 
 Two key metrics are reported:
@@ -370,7 +370,7 @@ High-quality MAGs are suitable for:
 - metabolic reconstruction
 - comparative genomics
 
-### Summary
+## Summary
 In this module we introduced the workflow used to reconstruct microbial genomes from metagenomic sequencing data.
 
 We covered:

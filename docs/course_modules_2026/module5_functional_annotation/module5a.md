@@ -60,7 +60,7 @@ By the end of this module, participants will be able to
 
 -   Integrate and interpret taxonomic, functional, and genome-resolved results to derive biologically meaningful insights into microbial communities
 
-## Phyloseq
+### Phyloseq
 
 Phyloseq is an R package designed for the analysis and visualization of microbiome data. It integrates taxonomic abundance tables, sample metadata, and phylogenetic information into a unified framework, making it easier to explore and interpret microbial community structure.
 
@@ -68,12 +68,12 @@ The package enables calculation of alpha diversity (within-sample diversity) and
 
 In simple terms, phyloseq helps answer the question: who is there, and how do communities differ?. 
 
-### References:
+#### References:
 GitHub: <https://joey711.github.io/phyloseq/>
 
 Publication: McMurdie P.J. & Holmes S. (2013) phyloseq: An R Package for Reproducible Interactive Analysis and Graphics of Microbiome Census Data. PLoS ONE. https://doi.org/10.1371/journal.pone.0061217
 
-## HUMAnN
+### HUMAnN
 
 HUMAnN (The HMP Unified Metabolic Analysis Network) is a bioinformatics
 tool used to profile the functional potential of microbial communities
@@ -91,7 +91,7 @@ researchers to move beyond identifying which organisms are present and
 instead understand what metabolic activities the community is capable of
 performing.
 
-### References:
+#### References:
 
 Website: <https://huttenhower.sph.harvard.edu/humann/>
 
@@ -101,7 +101,7 @@ Computational Biology (this earlier work describes the original HUMAnN
 approach for functional profiling from metagenomes).
 <https://journals.plos.org/ploscompbiol/article?id=10.1371%2Fjournal.pcbi.1002358>
 
-## Prokka
+### Prokka
 
 Prokka is a rapid genome annotation tool designed for the functional
 annotation of prokaryotic genomes, including bacterial and archaeal
@@ -120,7 +120,7 @@ function directly to reconstructed genomes. The output files (e.g., FAA, GFF,
 GBK, TSV) can be used for pathway analysis, comparative genomics,
 and integration with other functional databases.
 
-### References:
+#### References:
 
 GitHub: <https://github.com/tseemann/prokka>
 
@@ -128,7 +128,7 @@ Publication: Seemann T. (2014). Prokka: rapid prokaryotic genome
 annotation. Bioinformatics, 30(14), 2068–2069.
 <https://doi.org/10.1093/bioinformatics/btu153>
 
-## MaAsLin3
+### MaAsLin3
 
 MaAsLin3 (Multivariable Association with Linear Models 3) is an advanced statistical framework for identifying associations between microbial features (such as taxa, genes, or pathways) and metadata variables. It is widely used in microbiome studies to detect differentially abundant features across experimental conditions or phenotypes.
 
@@ -138,7 +138,7 @@ MaAsLin3 supports complex study designs (e.g., multiple covariates, repeated mea
 
 In simple terms, MaAsLin3 helps answer the question: which microbes or functions are significantly associated with a condition or phenotype, and in what direction?
 
-### References
+#### References
 Website: <https://huttenhower.sph.harvard.edu/maaslin/>
 
 GitHub: <https://github.com/biobakery/Maaslin3>
@@ -146,7 +146,7 @@ GitHub: <https://github.com/biobakery/Maaslin3>
 Nickols W.A. et al. (2026) MaAsLin 3: Refining and extending generalized multivariable linear models for meta-omic association discovery. Nature Methods. https://doi.org/10.1038/s41592-025-02923-9
 
 
-## When to use either HUMAnN or Prokka
+### When to use either HUMAnN or Prokka
 
 Use HUMAnN when: - You want quantitative community-level comparisons -
 You are performing statistical modelling - You are linking function to
@@ -164,7 +164,7 @@ Functional capacity vs functional potential
 | HUMAnN3 | Short reads | Relative abundance of pathways | Community-level functional capacity |
 | Prokka on MAGs | Genome FASTA | Annotated genes & CDS | Genome-resolved functional potential |
 
-## Useful concepts
+### Useful concepts
 
 -   **MetaPhlAn (Metagenomic Phylogenetic Analysis)** A computational
     tool used to profile the composition of microbial communities from
@@ -183,9 +183,9 @@ Functional capacity vs functional potential
     origin and have similar sequences and often similar biological
     functions.
 
-# Part I — Community-level functional profiling (HUMAnN3)
+## Community-level functional profiling (HUMAnN3)
 
-## Overview
+### Overview
 
 This part introduces functional profiling of shotgun metagenomic data
 using **HUMAnN3**, followed by normalization, merging, and preparation
@@ -220,7 +220,7 @@ HUMAnN3 (The HMP Unified Metabolic Analysis Network) reconstructs:
 Functional outputs represent **community-level functional capacity** infered from reads, not genome completeness and they tell you “What functions are abundant in this microbial community?”
 ---
 
-# Exercise
+### Exercise
 
 ***Due to time constraints, this step will not be run during the class.
 Instead, we will examine how to normalise and merge outputs from humann3.***
@@ -231,7 +231,7 @@ If you are interested in learning how to run HUMAnN on multiple samples,
 please go to
 [Module5a_Supplementary1_HUMAnN_on_Nextflow.md](Module5a_Supplementary1_HUMAnN_on_Nextflow.md)
 
-# Running the pipeline on one sample.
+### Running the pipeline on one sample.
 
 ***Due to time constraints, this step will not be run during the class.
 Instead, we will examine and discuss its outputs.***
@@ -269,7 +269,7 @@ mamba create -n phlan3 -c conda-forge -c bioconda -c biobakery metaphlan=3.0 hum
 mamba activate phlan3
 ```
 
-## Step 1 — Choose one FASTQ file
+### Choose one FASTQ file
 
 First combine or otherwise prepare the paired reads into the required
 input format. Example:
@@ -284,7 +284,7 @@ cat Module1/cleaned_reads/SRR30598619_clean_1.fastq.gz \
     > /humann_combined/SRR30598619_combined.fastq.gz
 ```
 
-## Step 2 — Run HUMAnN directly
+### Run HUMAnN directly
 
 ``` bash
 humann \
@@ -306,9 +306,9 @@ What this does:
 
 \- Writes output to humann_output/SRR30598619/
 
-# Understanding HUMAnN Outputs
+#### Understanding HUMAnN Outputs
 
-## Each sample produces:
+Each sample produces:
 
 ```         
     *_genefamilies.tsv
@@ -321,13 +321,13 @@ on the working station or on out course Github page:
 <https://github.com/WCSCourses/Human_Gut_Microbiome_Metagenomics_2026/tree/main/course_data_2026/Module5a/SRR30598619>
 .
 
-## Gene Families
+#### Gene Families
 
 -   UniRef identifiers
 -   May include stratified entries (gene\|taxon)
 -   Include UNMAPPED
 
-### Stratified vs Unstratified Entries
+#### Stratified vs Unstratified Entries
 
 HUMAnN outputs contain two types of gene family entries:
 
@@ -345,18 +345,16 @@ For example:
 Stratified outputs allow you to link function to specific microbial
 taxa.
 
-## Pathway abundance
+### Pathway abundance
 
 -   Quantitative abundance values
 
-## Pathway Coverage
+### Pathway Coverage
 
 -   0–1 confidence score \*\***Do not normalize coverage files
     (\*\_pathcoverage.tsv).**\*\*
 
-------------------------------------------------------------------------
-
-# Normalizing Gene Families
+### Normalizing Gene Families
 
 Gene families are normalised to remove technical biases (like sequencing
 depth and gene length) so that observed differences reflect **true
@@ -381,7 +379,7 @@ You can refer to the script located at
 [`Module5a/scripts/gene_normalize_rel_ab.sh`](https://github.com/WCSCourses/Human_Gut_Microbiome_Metagenomics_2026/blob/main/course_data_2026/Module5a/scripts/gene_normalize_rel_ab.sh)
 to see an example of how gene family data can be normalised.
 
-# Normalizing Pathway abundance
+### Normalizing Pathway abundance
 
 Pathway abundances are normalised to make samples comparable. This
 process corrects for differences in sequencing depth and underlying gene
@@ -392,7 +390,7 @@ You can refer to the script located at
 [Module5a/scripts/path_normalize_rel_ab.sh](https://github.com/WCSCourses/Human_Gut_Microbiome_Metagenomics_2026/blob/main/course_data_2026/Module5a/scripts/path_normalize_rel_ab.sh)
 to see an example of how Pathway abundance data can be normalised.
 
-# Merging gene families and pathway abundance across samples
+### Merging gene families and pathway abundance across samples
 
 Merging gene family and pathway abundances across samples is important
 because it creates a single, consistent dataset that can be compared and
@@ -433,22 +431,22 @@ humann_join_tables \
   --file_name pathcoverage
 ```
 
-# Sanity Checks
+### Sanity Checks
 
-## In R:
+#### In R:
 
 ``` r
 before_sum <- sum(merged_genes[[2]])
 print(before_sum)
 ```
 
-### Expected:
+Expected:
 
 -   Sum close to 1
 -   No values \>1
 -   UNMAPPED present
 
-# 11. Feature filtering before statistical modelling
+### Feature filtering before statistical modelling
 
 HUMAnN outputs may contain hundreds of thousands of features therefore
 filtering reduces noise and improves statistical power.
@@ -456,11 +454,11 @@ filtering reduces noise and improves statistical power.
 > **Recommended filtering** Minimum prevalence ≥ 10%; Minimum mean
 > abundance ≥ 1e-05
 
-### Example in R:
+#### Example in R:
 
 rowMeans(data \> 0) \>= 0.10 rowMeans(data) \>= 1e-05
 
-# Common Mistakes
+### Common Mistakes
 
 -   Forgetting normalization
 -   Mixing normalized and non-normalized tables
@@ -468,19 +466,19 @@ rowMeans(data \> 0) \>= 0.10 rowMeans(data) \>= 1e-05
 -   Incorrect input directory paths
 -   Not making scripts executable
 
-# Key Take-Home Concepts
+### Key Take-Home Concepts
 
 -   HUMAnN quantifies community-level functional capacity
 -   Stratified outputs show taxon-specific contributions
 -   Relative abundance enables cross-sample comparison
 -   Coverage indicates pathway presence confidence
 
-# Part II — Genome-Resolved Functional Annotation (Prokka on MAGs)
+## Genome-Resolved Functional Annotation (Prokka on MAGs)
 
 ***Due to time constraints, this part will not be run during the class.
 Instead, we will examine and discuss its outputs.***
 
-## Overview
+### Overview
 
 In Part II, we will annotate **Metagenome-Assembled Genomes (MAGs)**
 using **Prokka**, a rapid prokaryotic genome annotation tool.
@@ -507,9 +505,9 @@ Integrate function + taxonomy
 
 ------------------------------------------------------------------------
 
-# 1. Conceptual Background
+### Conceptual Background
 
-## What is a MAG?
+#### What is a MAG?
 
 A Metagenome-Assembled Genome (MAG) is a draft genome reconstructed from
 metagenomic assembly and binning.
@@ -523,7 +521,7 @@ MAGs allow us to:
 
 ------------------------------------------------------------------------
 
-# 2. Input Requirements
+#### Input Requirements
 
 The files needed in this tutorial are stored here:
 <https://github.com/WCSCourses/Human_Gut_Microbiome_Metagenomics_2026/tree/main/course_data_2026/Module2/MAG_practical>
@@ -541,7 +539,7 @@ These should be:
 
 ------------------------------------------------------------------------
 
-# 3. Install Prokka
+#### Install Prokka
 
 ***You do not need to do this step during the class. Prokka has already
 been installed for you.***
@@ -559,7 +557,7 @@ Confirm installation:
 prokka --version
 ```
 
-# 4. Running Prokka on a Single MAG
+#### Running Prokka on a Single MAG
 
 The input for this command can be found on your work computer and also
 at
@@ -587,7 +585,7 @@ What this does:
 
 \- Produces multiple output files
 
-# 5. Understanding Prokka Outputs
+#### Understanding Prokka Outputs
 
 Please check the outputs for each high quality MAG from one sample (SRR30598619) here:
 <https://github.com/WCSCourses/Human_Gut_Microbiome_Metagenomics_2026/tree/main/course_data_2026/Module5a/prokka_annotation_SRR30598619>
@@ -622,7 +620,7 @@ exploration and contains
 head cleaned_SRR30598619_bin.20.orig_filtered_kept_contigs_prokka/cleaned_SRR30598619_bin.20.orig_filtered_kept_contigs.tsv
 ```
 
-# 6. Running Prokka on multiple MAGs
+#### Running Prokka on multiple MAGs
 
 ***Due to time constraints, this part will not be run during the class.
 Instead, we will examine and discuss its outputs.***
@@ -637,7 +635,7 @@ inspected here:
 
 ------------------------------------------------------------------------
 
-# 7. Interpreting Genome-Resolved functional potential
+#### Interpreting Genome-Resolved functional potential
 
 After annotation, you can:
 
@@ -661,7 +659,7 @@ less cleaned_SRR30598619_bin.20.orig_filtered_kept_contigs_prokka/cleaned_SRR305
 
 ------------------------------------------------------------------------
 
-# 8. Summary
+#### Summary
 
 Using Prokka on MAGs provides:
 

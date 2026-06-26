@@ -1,7 +1,7 @@
 # Running HUMAnN on an HPC using Nextflow
 
-# 1. Environment setup and activation and checks
-## Prerequisites
+## Environment setup and activation and checks
+Prerequisites:
 - QC’d metagenomic reads (from Module 1)
 - A working HUMAnN3 installation (conda/mamba or module)
 - HUMAnN databases available and configured:
@@ -10,7 +10,7 @@
 - Nextflow installed (and Slurm available if running on HPC)
 
 ## Organise your working directory
-### Create a clean folder for this module and place the pipeline files inside it
+Create a clean folder for this module and place the pipeline files inside it
 ```bash
 mkdir -p module_humann
 cd module_humann
@@ -25,13 +25,13 @@ module_humann/
   humann_output/     # OUTPUT_DIR points here (created during run)
 ```
 
-### Create/activate a dedicated conda/mamba environment
+## Create/activate a dedicated conda/mamba environment
 ```bash
 mamba create -n phlan3 -c conda-forge -c bioconda -c biobakery metaphlan=3.0 humann=3.9
 mamba activate phlan3
 ```
 
-### Upgrading your databases 
+## Upgrading your databases 
 To upgrade your pangenome database:
 ```bash
 humann_databases --download chocophlan full /path/to/databases --update-config yes
@@ -45,7 +45,7 @@ To download or update utility mapping databases
 humann_databases --download utility_mapping full /path/to/databases --update-config yes
 ```
 
-### Confirm installation and that tools are available
+## Confirm installation and that tools are available
 ```bash
 which humann
 humann --version
@@ -54,7 +54,7 @@ metaphlan --version
 nextflow -version
 ```
 
-### Configure HUMAnN database paths
+## Configure HUMAnN database paths
 HUMAnN needs to know where its databases are located.
 Check current config:
 ```bash
@@ -72,7 +72,7 @@ Confirm again:
 humann_config --print
 ```
 
-### Prepare input FASTQ files
+## Prepare input FASTQ files
 Your Nextflow pipeline expects files matching:
     ```text
     /*fastq.gz
@@ -93,8 +93,8 @@ Note: This pipeline assumes one FASTQ per sample (merged). If you have paired-en
 
 ---
 
-# 2. Prepare your nextflow configuration and hummann pipeline nextflow files
-### What is `nextflow.config` and why do we need it?
+## Prepare your nextflow configuration and hummann pipeline nextflow files
+What is `nextflow.config` and why do we need it?
 
 `nextflow.config` is a small configuration file that tells Nextflow:
 
@@ -108,7 +108,7 @@ You do **not** need to understand scripting to edit this file.  You only need to
 
 Think of this file as the “settings page” for your pipeline.
 
-## Prepare a nextflow.config
+### Prepare a nextflow.config
 ```bash
 nano nextflow.config
 ```
@@ -157,7 +157,7 @@ You do not need to write Nextflow code yourself.
 
 This file simply tells Nextflow: “For every FASTQ file in the input folder, run HUMAnN and save the results.”
 
-## Prepare your humman.nf file
+### Prepare your humman.nf file
 
 ```bash
 nano humman2.nf
@@ -201,7 +201,7 @@ Save and exit.
 
 In simple terms: Nextflow finds all FASTQ files and runs HUMAnN on each one automatically.
 
-# 3.Running the pipeline on all samples
+## Running the pipeline on all samples
 ```bash
 nextflow run humann2.nf -profile slurm --resume 2>&1 | tee -a run.log
 ```

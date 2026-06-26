@@ -7,7 +7,7 @@ Boniface Gichuki
 Luicer Anne Ingasia Olubayo
 
 ---
-# Introduction
+## Introduction
 After library preparation and sequencing, the resulting raw reads enter the metagenomic bioinformatics workflow, where computational analyses transform large volumes of sequencing data into interpretable biological insights. The schematic below illustrates the overall metagenomic bioinformatics workflow that will be explored throughout this training.
 
 ![overview](images/overview.png)
@@ -47,7 +47,7 @@ ___
 > **metaWRAP** – workflow automation for metagenomic preprocessing
 
 ---
-# Part I — Understanding the data before cleaning it
+##  Part I — Understanding the data before cleaning it
 Before running any software, it is important to understand the structure and characteristics of sequencing data.
 
 1. What is a FASTQ file?
@@ -123,7 +123,7 @@ project/
 ```
 
 ---
-# Part II — Downloading data from ENA
+## Part II — Downloading data from ENA
 The International Nucleotide Sequence Database Collaboration (INSDC) consists of three synchronized global archives:
 
 - National Center for Biotechnology Information (NCBI) (USA)
@@ -134,7 +134,7 @@ These repositories mirror each other’s data, allowing sequencing datasets to b
 
 In this training, we will download one paired end shotgun metagenomic sequencing reads from ENA.
  
- ## Step 1a — Download a single sample using wget
+ ### Step 1a — Download a single sample using wget
 Example command for downloading paired-end reads:
  ```bash
  cd RAW_READS
@@ -156,7 +156,7 @@ ls RAW_READS
 	SRR30598622_2.fastq.gz
 ```
 
- ## Step 1b — Download multiple samples using ENA downloader
+ ### Step 1b — Download multiple samples using ENA downloader
  If many samples need to be downloaded, an automated downloader can be used. An example is here **https://github.com/sanger-pathogens/enadownloader**
 
 The steps involve creating a text file which contains one run accession per line:
@@ -193,13 +193,13 @@ The downloaded FASTQ files are written directly to the `RAW_READS` directory, wh
 
 ---
 
-# Part III — Initial quality control
+## Part III — Initial quality control
 In this section, we apply the some of the tools introduced earlier to perform the key preprocessing steps required before downstream metagenomic analysis.
 
 The major preprocessing steps in any shotgun metagenomic analysis are illustrated below. 
 ![preprocessing](images/preprocessing.png)
 
-## Step 1 — Run FastQC
+### Step 1 — Run FastQC
 FastQC provides an overview of sequencing quality metrics.
 ```bash
 fastqc RAW_READS/*.fastq.gz -o QC/fastqc_raw
@@ -221,7 +221,7 @@ Example report:
 ![preqc_report](images/preqc_report.png)
 
 
-## Step 2 — Combine reports using MultiQC
+### Step 2 — Combine reports using MultiQC
 MultiQC aggregates multiple FastQC reports into a single summary.
 ```bash
 multiqc QC/fastqc_raw -o QC/multiqc_raw
@@ -233,7 +233,7 @@ The output multiqc_report.html allows cross-sample comparison and helps identify
 - global sequencing quality trends
 
 ---------------------------
-# Part IV - Correcting identified problems
+##  Part IV - Correcting identified problems
 After quality assessment, the next step is to correct the identified issues.
 
 1. Adapter trimming and quality filtering
@@ -244,7 +244,7 @@ Together, these steps produce high-quality microbial reads suitable for downstre
 In this section we perform these steps manually. In the next section, we will demonstrate how the same logic can be automated using the metaWRAP read_qc pipeline.
 
 
-## 1. Adapter trimming and quality filtering
+### 1. Adapter trimming and quality filtering
 During library preparation, short adapter sequences are attached to DNA fragments to enable sequencing. These adapters may remain in sequencing reads, and read quality often declines toward the 3′ end. Trimming removes these technical artefacts, improving mapping accuracy and downstream analyses.
 
 
@@ -265,7 +265,7 @@ Typical output files:
 
 These trimmed reads are then used for host removal step.
 
-## 2. Post-trimming quality validation
+### 2. Post-trimming quality validation
 Quality correction should always be verified.
 
 An example would be using a tool such as fastqc. The command to run independently this step is as shown below.
@@ -283,12 +283,12 @@ Example post-QC report:
 ![postqc_report](images/postqc_report.png)
 
 
-## 3. Host DNA removal
+### 3. Host DNA removal
 In host-associated microbiome datasets, a proportion of sequencing reads may originate from host cells rather than microbes. Removing host DNA is therefore necessary to ensure that downstream analyses focus on microbial sequences.
 
 In the **metaWRAP pipeline**, host filtering is performed using BMTagger, an alignment-based tool designed to identify and remove host-derived reads. Here we demonstrate the same principle using Bowtie2, which aligns reads to a host reference genome and retains only unmapped reads.
 
-### Step 2 — Build the host genome index
+### Step 1 — Build the host genome index
 If you do not already have an index for the host genome, build one using Bowtie2. The human genome build 38 can be found at. Alternatively the field is advancing and some of the reesrachers are moving to the Telomere2Telomere (T2T-CHM13) builds found in th below link. 
 
 **>https://hgdownload.soe.ucsc.edu/downloads.html**
@@ -298,7 +298,7 @@ bowtie2-build hg38.fa hg38_index
   ```
 This step generates several index files required for alignment.
 
-### Step 3 — Align reads to the host genome
+### Step 2 — Align reads to the host genome
 ```bash
 
 bowtie2 \
@@ -322,7 +322,7 @@ SRR30598619_dehosted.2.fastq.gz
 These files represent the cleaned microbial reads.
 
 
-## 4. Validate host removal
+### 4. Validate host removal
 Inspect the Bowtie2 alignment summary.
 
 Example Bowtie2 alignment summary:
@@ -368,7 +368,7 @@ These cleaned reads are used for downstream analyses such as:
 - metagenome-assembled genome (MAG) reconstruction
 
 ---
-# Using a workflow:
+## Using a workflow:
 For a small number of samples, running preprocessing steps manually helps users understand each stage of the workflow. However, in large metagenomic projects containing hundreds of samples, manual execution becomes inefficient.
 
 Workflow systems such as Netflow and Snakemake automate these tasks in containerised environments and ensure reproducibility.

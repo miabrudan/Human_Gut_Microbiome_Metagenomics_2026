@@ -42,13 +42,13 @@ By the end of this module, participants will be able to:
 6. Identify alternative standalone tools for taxonomic profiling
 
 ---
-### Big picture: Where taxonomic annotation fits in the pipeline
+### Where taxonomic annotation fits in the pipeline
 The metagenomic workflow covered in this training course can be summarized as:
 ![read_vs_assembly_classfication](images/read_vs_assembly_classfication.png)
 
 ---
 
-## Part I — Taxonomic profiling approaches
+## Taxonomic profiling approaches
 
 As introduced above, taxonomic annotation in metagenomics can be performed either directly on sequencing reads or on reconstructed genomes, such as metagenome-assembled genomes (MAGs).
 
@@ -66,7 +66,7 @@ Several computational approaches are commonly used to classify sequencing reads.
 
 ---
 
-#### 1. Marker gene–based profilers
+#### Marker gene–based profilers
 
 Marker gene methods classify reads by mapping them to **taxonomically informative marker genes** that uniquely identify microbial lineages.
 
@@ -83,11 +83,9 @@ Examples include:
 - Reduced false positives  
 - Efficient for community composition profiling  
 
----
-
 > **Important reference:** Truong DT, Franzosa EA, Tickle TL, Scholz M, Weingart G, Pasolli E, Tett A, Huttenhower C, Segata N. MetaPhlAn2 for enhanced metagenomic taxonomic profiling. Nat Methods. 2015. https://doi.org/10.1038/nmeth.3589
 
-#### 2. k-mer–based classifiers
+#### k-mer–based classifiers
 
 These tools classify reads by matching short subsequences (*k-mers*) to reference genome databases.
 
@@ -111,7 +109,7 @@ Examples include:
 
 ---
 
-#### 3. Alignment-based approaches
+#### Alignment-based approaches
 
 Alignment-based methods compare reads against reference sequences using traditional sequence alignment.
 
@@ -129,7 +127,7 @@ Examples include:
 - Useful for detecting evolutionarily distant organisms  
 
 ---
-#### 4. Read-based strain-level analysis
+#### Read-based strain-level analysis
 
 Some read-based tools analyze metagenomic reads after they have been mapped to reference genomes or metagenome-assembled genomes (MAGs). These approaches allow investigation of **microbial populations at the strain (or subspecies) level** rather than only identifying which species are present.
 
@@ -167,7 +165,7 @@ Genome-level classification is particularly useful for:
 & Chaumeil, P. A., Mussig, A. J., Hugenholtz, P. & Parks, D. H. GTDB-Tk v2: memory friendly classification with the genome taxonomy database. Bioinformatics 38, 5315-5316 (2022). https://doi.org/10.1093/bioinformatics/btac672
 ---
 
-## Summary of taxonomic annotation approaches
+### Summary of taxonomic annotation approaches
 
 | Approach | Input data | Example tools | Typical purpose |
 |----------|-----------|---------------|----------------|
@@ -179,7 +177,7 @@ Genome-level classification is particularly useful for:
 
 ---
 
-## Key tools used in this module
+### Key tools used in this module
 
 **metaWRAP** – modular pipeline used for genome-resolved metagenomic analysis.  
 **Sylph** – k-mer–based read-level taxonomic classifier.
@@ -189,7 +187,7 @@ metaWRAP provides wrappers for several tools that allow taxonomic annotation wit
 
 ---
 
-## Part II — Read-based taxonomic classification using Sylph
+## Read-based taxonomic classification using Sylph
 
 In this section we demonstrate **read-based taxonomic profiling using Sylph**, a modern sketch-based metagenomic profiler.
 
@@ -201,9 +199,7 @@ Sylph can estimate:
 - approximate relative abundance (including for very low abundant microbial species)
 - genomic similarity between reads and reference genomes
 
----
-
-#### Input data
+### Input data
 
 This module uses the **quality-controlled, dehosted reads generated in Module 1**.
 
@@ -221,12 +217,12 @@ Example database file:
 reference_db/gtdb-r220-c200-dbv1.syldb
 ```
 
-### Step 1 — Download pre-sketched GTDB r220 database
+### Download pre-sketched GTDB r220 database
 ```text
 wget http://faust.compbio.cs.cmu.edu/sylph-stuff/gtdb-r220-c200-dbv1.syldb
 ```
 
-### Step 2 — Run Sylph profiling (profiling with GTDB-r220)
+### Run Sylph profiling (profiling with GTDB-r220)
 ```bash
 sylph profile \
     reference_db/gtdb-r220-c200-dbv1.syldb \
@@ -237,19 +233,19 @@ sylph profile \
 
 sylph_profile.tsv contain no taxonomic information. 
 
-### Step 3 — Run Sylph taxonomic profiling (Get taxonomic profile)
+### Run Sylph taxonomic profiling (Get taxonomic profile)
 ```bash
 sylph-tax taxprof \
 	sylph_profile.tsv \
 	> SRR30598619_clean_1.fastq.gz.sylphmpa
 ```
 
-### Step 3 — Examine the output
+### Examine the output
 The command produces a *.sylphmpa file similar to what MetaPhlAn outputs. Each taxonomic rank has an associated taxonomic or sequence abundance.
 head -n 20 SRR30598619_clean_1.fastq.gz.sylphmpa 
 
 
-##### Parameter explanation
+#### Parameter explanation
 ```bash
 - `profile` – computes k-mer–based similarity / abundance profiles, useful for comparing genomes or samples; it does not assign taxonomy.
 - `taxprof (or sylph-tax taxprof)` - performs taxonomic assignment, giving you which organisms are present and their abundances.
@@ -262,7 +258,7 @@ Example:
 ![sylph_output](images/sylph_output.png)
 
 
-> ##### Interpreting Sylph results
+#### Interpreting Sylph results
 Sylph results can be used to:
 - identify dominant microbial taxa present in a sample
 - estimate microbial relative abundance
@@ -271,12 +267,12 @@ Sylph results can be used to:
 
 Because Sylph uses genome sketches, it can perform fast taxonomic profiling even for very large metagenomic datasets.
 
-## Part III — Assembly-based taxonomic annotation
+## Assembly-based taxonomic annotation
 Assembly-based classification assigns taxonomy to **reconstructed genomes (MAGs)** generated in **Module 2**.
 
 metaWRAP includes the module **classify_bins** for this purpose.
 
-#### Input data
+### Input data
 This module uses the refined bins generated in **Module 2**.
 
 Example input directory:
@@ -285,7 +281,7 @@ refined_bins/metawrap_bins/
 ```
 Each bin represents a candidate metagenome-assembled genome (MAG).
 
-### Step 2 — Run metaWRAP classify_bins
+### Run metaWRAP classify_bins
 ```bash
 metawrap classify_bins \
     -b refined_bins/metawrap_bins \
@@ -311,7 +307,7 @@ bin.2   Bacteria;Bacteroidota;Bacteroidia
 ```
 These classifications assign taxonomy to reconstructed genomes.
 
-> #### Interpreting MAG classifications
+### Interpreting MAG classifications
 Taxonomic annotation of MAGs provides insight into which microbial genomes were reconstructed during assembly and binning.
 
 This information can be used to:

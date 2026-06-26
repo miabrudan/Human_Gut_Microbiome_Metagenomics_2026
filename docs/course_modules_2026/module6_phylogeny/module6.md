@@ -1,6 +1,6 @@
-# Building Phylogenetic Trees
+# Phylogenetic Trees
 
-## Learning Objectives
+## Learning Outcomes
 
 - Understand common methods of phylogenetic tree inference
 - Use FastTree for phylogenetic tree inference from alignment data.
@@ -28,11 +28,9 @@ Understanding the genetic diversity, genome plasticity, and recombination patter
 
   ![Image of know your bug](images/know_your_bug.png)
 
----
-## Phylogenetic Tree Inference
----
+### Phylogenetic Tree Inference
 
-### Terminologies
+Terminologies
 - **Leaves** (tips) - Represent actual observed data
 - **Branches** - In a tree, branches can represent multiple meanings. in order to fully understand the meaning of the tree you need to understand how the tree was built. A branch can mean the divergence time between current species and its hypothetical ancestor (i.e. if you know when the samples were collected, it is possible to reconstruct a timed tree where the nodes are placed in their corresponding times), it can also mean the number of substitutions per site or number of changes between the hypothetical ancestors and the current sampled organism.
 More often than not, samples are collected at the same time, and it might be assumed that their divergence time from their common ancestor is the same. An **ultrametric tree** shows exactly that, where the distance between the root and the tips is the same for all samples.
@@ -82,7 +80,7 @@ Overall, the placement of the root determines the direction of evolution and can
   ![First exercise](images/exercise1.png){width=50%}
 
 
-## Tree topology
+### Tree topology
 - The topology describes how taxa are connected, independent of branch lengths.
 - **A clade** - Is a set of all sequences/species (terminal nodes) descending from a node/ancestor.
 
@@ -111,14 +109,14 @@ For example the groupings in these trees are the same
 
   ![exercise two](images/exercise2.png)
 
-## Discussion
+### Discussion
 
 1. What is a phylogenetic tree and why do we do them?
 2. What do the tips (leaves) and internal nodes represent?
 3. What is the difference between a rooted and unrooted tree?
 4. What does branch length indicate?
 
-## Phenomenon impacting phylogenetic reconstruction
+### Phenomenon impacting phylogenetic reconstruction
 
 - **Within-species recombination**: Recombination can cause different genomic regions (loci) to have distinct evolutionary histories, resulting in conflicting phylogenetic signals. This may produce unusually short or long branches. In bacterial genomes, recombination can be accounted for using tools such as ClonalFrameML or Gubbins.
 - **Hybridization (or introgression)**: When reconstructing species trees from multiple genes, different genes may support conflicting relationships due to hybridization or gene flow between lineages. This leads to discordance between gene trees and the overall species tree.
@@ -205,7 +203,7 @@ Bootstrap analysis evaluates confidence in a tree or individual 6tree branches b
 
 ---
 
-## Multiple Sequence Alignments
+### Multiple Sequence Alignments
 
 ---
 
@@ -277,7 +275,7 @@ Several tools are available for visualising phylogenetic trees, including FigTre
 To get started create an account at: https://itol.embl.de/ (or sign-in using your Google account).
 
 
-## Preparing Annotation file
+### Preparing Annotation file
 
 This guide outlines how to colour a phylogenetic tree in iTOL using phylum-level metadata.
 
@@ -288,7 +286,7 @@ You will:
 - Format the data for iTOL
 - Upload the annotation file
 
-#### Step 1: Extract Phylum Information from GTDB Metadata
+#### Extract Phylum Information from GTDB Metadata
 
 - Open your GTDB metadata file in excel
 
@@ -312,7 +310,7 @@ This file is also on Github:
 
   ![Flash-fill](images/Flash-fill.png)
 
-#### Step 2: Create a Clean Working Sheet
+#### Create a Clean Working Sheet
 - Open a new sheet (e.g., Book2).
 - Copy the sample column and newly created phylum column into Book2
 

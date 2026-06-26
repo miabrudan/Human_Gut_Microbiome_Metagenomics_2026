@@ -1,15 +1,11 @@
 # Module 5b 
 ## AMR Gene Profiling in Human Gut Microbiome MAGs
 
----
-
 ## Module leads
 Rahma Golicha    
 Caroline Tigoi 
 
----
-
-## Module Overview
+## Overview
 
 This module introduces **Antimicrobial Resistance Gene (ARG) profiling** using the **Resistance Gene Identifier (RGI)** tool in metagenomic mode (`rgi main`).
 
@@ -34,9 +30,7 @@ RGI workflow:
 📖 Documentation:  
 https://github.com/arpcard/rgi/blob/master/docs/rgi_main.rst  
 
----
-
-# Learning Outcomes
+## Learning Outcomes
 
 By the end of this session, participants will be able to:
 
@@ -47,9 +41,7 @@ By the end of this session, participants will be able to:
 - Merge multiple RGI outputs
 - Prepare results for downstream analysis in R
 
----
-
-# Where This Fits in Gut Metagenomics
+## Where This Fits in Gut Metagenomics
 
 ```
 QC → Assembly → Binning → MAG refinement → AMR profiling → Ecological interpretation
@@ -57,9 +49,7 @@ QC → Assembly → Binning → MAG refinement → AMR profiling → Ecological 
 
 This module focuses on the **AMR profiling step**.
 
----
-
-# Requirements
+## Requirements
 
 Participants should have:
 
@@ -70,10 +60,10 @@ Participants should have:
 
 ---
 
-# Exercise 1 — Environment Setup
+### Environment Setup
 You can skip the Environment Setup in the classroom. The environment has been already setup for you.
 
-## 1️⃣ Initialize Conda
+#### Initialize Conda
 
 #Download and Initialize conda
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
@@ -84,24 +74,20 @@ conda init bash
 source ~/.bashrc
 ```
 
----
-
-## 2️⃣ Install Mamba (Faster Package Manager)
+#### Install Mamba (Faster Package Manager)
 
 ```bash
 conda install -n base -c conda-forge mamba
 mamba --version
 ```
----
-## 3️⃣ Create a Clean Environment
+#### Create a Clean Environment
 
 ```bash
 conda create -n rgi_env (This has been done for you, proceed to activating the rgi_env)
 conda activate rgi_env
 ```
----
 
-## 4️⃣ Configure Channels (You can skip this, this has been done)
+#### Configure Channels (You can skip this, this has been done)
 
 ```bash
 conda config --add channels defaults
@@ -109,32 +95,29 @@ conda config --add channels bioconda
 conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
----
 
-## 5️⃣ Install RGI (RGI  Has alraedy been Installed. You can Skip this)
+#### Install RGI (RGI  Has alraedy been Installed. You can Skip this)
 
 ```bash
 mamba install rgi
 rgi main --version
 ```
----
-# Exercise 2 — Download and Load CARD Database
 
-## Download CARD. You can skip this in the classroom. Move to loading the database into RGI.
+## Download and Load CARD Database
 
 ```bash
 wget https://card.mcmaster.ca/latest/data
 tar -xvf data
 ```
-## Load Database into RGI. This is quite slow.
+## Load Database into RGI.
 
 ```bash
 rgi load --card_json /data/microbiome_course2026/localDB/card.json --local
 rgi database --version
 ```
 ---
-# Exercise 3 — Run RGI on Human Gut MAGs
-## Input Data
+## Run RGI on Human Gut MAGs
+### Input Data
 Participants will use pre-generated Metagenome-Assembled Genomes (MAGs) in FASTA format. 
 The MAGs are stored in Module3/MAGS/cleaned_fasta.
 
@@ -170,7 +153,7 @@ rgi main \
 ```
 ---
 
-# Exercise 4 — Understanding Output Files
+## Understanding Output Files
 
 ### location:
 Outputs are saved in the same directory as the input unless specified.
@@ -225,7 +208,7 @@ This file can now be imported into **R** for downstream ecological analysis.
 
 ---
 
-# Biological Interpretation in Human Gut Context
+### Biological Interpretation in Human Gut Context
 
 When analyzing gut microbiome MAGs:
 
@@ -243,7 +226,7 @@ Ask:
 ---
 #Note: AMR analysis has already been performed on all MAGs for you; participants can access the results in course_data_2026/module5b/output/rgi_main_all_HGM_April26.tsv 
 
-# Generating a Heatmap from RGI Results
+### Generating a Heatmap from RGI Results
 
 rgi heatmap can be used to visualise AMR profiles across samples using pre-computed RGI JSON outputs. The tool generates heatmaps in both PNG and EPS formats.
 
@@ -277,7 +260,7 @@ Ensure that the input directory contains only valid RGI JSON output files.
 The .csv file can be used for custom visualisation in R (e.g., using ggplot2 or pheatmap).
 
 
-# Exercise 5: 📈 Downstream Analysis In R-Studio: Practical Session
+## Downstream Analysis In R-Studio: Practical Session
 
 Analysis can be performed:
 
@@ -289,7 +272,7 @@ Refer to `/course_modules_2026/Module5_Functional_Annotation/Module5b_AMR_analys
 This script contains the full workflow for the AMR analysis.
 Participants are encouraged to open it in RStudio and follow along step by step, running each section as we go through the session.
 
-# Datasets used in this analysis
+### Datasets used in this analysis
 
 In this RMarkdown, we will work with three datasets:
 1. AMR data for all MAGs
@@ -301,7 +284,7 @@ course_data_2026/Module5b/output/Bednarski_2025_cleaned_metadata_final.xlsx
 
 These datasets will be loaded, cleaned, and merged within the script to create a unified dataset for downstream analysis.
 
-# What the merged dataset contains
+### What the merged dataset contains
 
 After processing, the final dataset will include:
 
@@ -334,18 +317,7 @@ During the practical, we will:
 - Visualize resistome profiles using boxplots, facted bar plots and  heatmaps
 - Identify multidrug-resistant genomes
 
----
-
-# Optional: Visualize JSON Output
+### Optional: Visualize JSON Output
 
 Upload `.json` files to the CARD website for interactive visualization: https://card.mcmaster.ca/analyze/rgi 
-
----
-
-# References
-
-- CARD Database  
-- RGI documentation  
- 
----
 

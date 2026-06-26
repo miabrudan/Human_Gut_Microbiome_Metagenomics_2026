@@ -28,13 +28,13 @@ By the end of this module, participants will be able to:
 5. Understand the concept of custom microbiome reference databases
 
 ---
-### Big picture: How MAGmax performs genome dereplication
+### How MAGmax performs genome dereplication
 The workflow for clustering genomes and selecting species-level representatives using MAGmax can be summarized as shown below. 
 ![building_eference_microbiome_databases](images/magmax_workflow.png)
 
 ---
 
-## Part I - Genome dereplication in metagenomics
+## Genome dereplication in metagenomics
 
 As introduced above, genome collections generated from metagenomic assembly often contain redundant genomes, arising from:
 
@@ -50,7 +50,7 @@ Dereplication is the process of:
 
 This ensures that downstream analyses (such as read mapping) are performed on a non-redundant and biologically meaningful genome set.
 
-## Part II - Dereplication using MAGmax 
+## Dereplication using MAGmax 
 
 In this section we demonstrate genome dereplication using MAGmax, a tool designed to enhance genome recovery and reduce redundancy across metagenomic datasets.
 
@@ -63,8 +63,7 @@ This module uses the high-quality MAGs generated in Module 2.
 
 Example input: CheckM2 statistics (checkm2_postqc_Completeness and checkm2_postqc_Contamination) and file path to the 745 high quality MAGs:
 
----
-### Step 1 — Run MAGmax dereplication
+### Run MAGmax dereplication
 
 ```bash
     magmax \
@@ -82,8 +81,7 @@ By default, an output directory named mags_90comp_95purity/ will be created, whe
 
 The output directory contains dereplicated bins, a text file listing the completeness and contamination scores for each bin as calculated by CheckM2 (similar to genome_quality.tsv), and memberships file (memberships.tsv) listing members for each selected representative.
 
----
-## Part III — Custom microbiome reference database
+## Custom microbiome reference database
 The 349 representative genomes generated after dereplication form a custom microbiome reference genome database, specific to this dataset.
 
 In this training course, taxonomic profiling will be performed using the GTDB r220 reference database with Sylph. However, an alternative approach would be to use a custom, study-specific database such as this one.

@@ -1,8 +1,6 @@
-# Module 2 – Practical Exercise  
-## Exploring Metagenome-Assembled Genomes (MAGs)
----
+# Module 2 – Exploring Metagenome-Assembled Genomes (MAGs) Practical Exercise  
 
-## Exercise overview
+## Overview
 In this exercise we will explore the outputs of a **genome-resolved metagenomics workflow**.
 
 Running a complete metagenomic assembly and binning pipeline can take several hours on high-performance computing systems. For training purposes, the heavy computational steps have already been completed.
@@ -24,7 +22,7 @@ The dataset provided for this exercise contains the results of a completed **met
 
 For this exercise we have used pregenerated **quality-controlled paired-end reads** in **Module 1** to assemble raw metagenome assembled genomes (MAGs).
 
-## Exercise 1 – Inspect the Assembly
+## Assembly
 First, we examine the assembly output.
 
 Navigate to the assembly directory:
@@ -42,19 +40,19 @@ grep ">" SRR30598619_final_assembly.fasta | wc -l
 ```
 This command counts the number of contigs produced during assembly.
 
-### Inspect contig lengths
+## Contig lengths
 To view the first few contigs:
 ```bash
 head SRR30598619_final_assembly.fasta
 ```
-#### Questions
+### Questions
 1. How many contigs were produced?
 2. Are all contigs the same length?
 
 In real datasets, contig sizes can vary from a few hundred base pairs to hundreds of kilobases.
 
 ---
-## Exercise 2 – Explore Genome Bins
+## Genome Bins
 Next, examine the bins produced by the binning algorithms.
 
 Navigate to the binning directory:
@@ -76,7 +74,7 @@ bin.3.fa
 ```
 Each file represents a **candidate genome bin**.
 
-#### Inspect one bin
+### Inspect one bin
 Open a bin file:
 
 ```bash
@@ -87,7 +85,7 @@ Each bin contains multiple contigs predicted to originate from the same genome.
 
 ---
 
-## Exercise 3 – Examine Refined MAGs
+## Refined MAGs
 Now examine the refined bins produced by metaWRAP.
 
 Navigate to the refinement directory:
@@ -106,7 +104,7 @@ These genomes represent the best-quality bins after combining results from multi
 
 ---
 
-## Exercise 4 – Evaluate MAG Quality
+## MAG Quality
 Next, inspect the MAG quality statistics (estimated with CheckM).
 
 ```bash
@@ -131,14 +129,14 @@ Use the following guidelines:
 | Medium-quality | >70%         | <10%          |
 | Low-quality    | <50%         | variable      |
 
-#### Questions:
+### Questions
 1. How many MAGs meet high-quality criteria?
 2. Which MAG has the highest completeness?
 3. Which MAG shows the highest contamination?
 
 ---
 
-## Exercise 5 – Count Contigs per MAG
+## Count Contigs per MAG
 To see how many contigs make up each MAG:
 
 ```bash
@@ -153,7 +151,7 @@ MAGs usually consist of multiple contigs rather than a single continuous sequenc
 3. How might sequencing depth influence MAG completeness?
 4. What additional steps could improve genome reconstruction?
 
-### Key Takeaways
+## Key Takeaways
 
 In this exercise you:
 

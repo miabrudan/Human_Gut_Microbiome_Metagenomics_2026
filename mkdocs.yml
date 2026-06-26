@@ -7,13 +7,11 @@ theme:
   titles_only: false
 
 nav:
-  - Home: index.md
   - Course modules:
       - "Module 1: Data download, QC and decontamination":
           - Introduction: course_modules_2026/Module1_Data_download_QC_and_decontamination/Module1_QC.md
           - MetaWRAP example: course_modules_2026/Module1_Data_download_QC_and_decontamination/Module1_QC_metaWRAP.md
           - Results interpretation: course_modules_2026/Module1_Data_download_QC_and_decontamination/Module1_Practical.md
-
       - "Module 2: Assembly and MAGs":
           - Introduction: course_modules_2026/Module2_Assembly_and_Metagenome-Assembled_Genomes/Module2_MAGs.md
           - MetaWRAP example: course_modules_2026/Module2_Assembly_and_Metagenome-Assembled_Genomes/Module2_MAGs_metaWRAP.md
