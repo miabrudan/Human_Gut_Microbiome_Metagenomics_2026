@@ -17,9 +17,9 @@ nav:
           - MetaWRAP example: course_modules_2026/module2_assembly/module2_metawrap/
           - Results interpretation: course_modules_2026/module2_assembly/module2_practical/
       - "Module 3: Custom microbiome database":
-          - Overview: course_modules_2026/module3_reference_databases/module3/
+          - Database: course_modules_2026/module3_reference_databases/module3/
       - "Module 4: Taxonomic profiling":
-          - Overview: course_modules_2026/module4_profiling/module4/
+          - Taxonomic profiling: course_modules_2026/module4_profiling/module4/
       - "Module 5a: Functional annotation":
           - Functional profiling: course_modules_2026/module5_functional_annotation/module5a/
           - Supplementary HUMAnN Nextflow: course_modules_2026/module5_functional_annotation/module5a_nextflow/
