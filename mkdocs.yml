@@ -3,7 +3,7 @@ site_description: Documentation for My Project
 theme:
   name: readthedocs
   navigation_depth: 4
-  collapse_navigation: false
+  collapse_navigation: true
   titles_only: false
 
 nav:
